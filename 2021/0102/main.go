@@ -22,8 +22,8 @@ func main() {
 	arr := getAllItems(scanner)
 
 	if len(arr) > SLICE_LENGTH {
-		firstSum := getSliceSum( arr[0:SLICE_LENGTH])
-		increments := getIncrements( arr[1:], firstSum )
+		firstSum := getSliceSum(arr[0:SLICE_LENGTH])
+		increments := getIncrements(arr[1:], firstSum)
 		fmt.Println("INCREMENTS", increments)
 	} else {
 		log.Fatal("Not enough items")

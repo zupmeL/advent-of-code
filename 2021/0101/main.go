@@ -17,13 +17,13 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 
-	firstItem := getFirstItem( scanner )
-	increments := getIncrements( scanner, firstItem )
+	firstItem := getFirstItem(scanner)
+	increments := getIncrements(scanner, firstItem)
 
 	fmt.Println("INCREMENTS: ", increments)
 }
 
-func getFirstItem( scanner *bufio.Scanner) int {
+func getFirstItem(scanner *bufio.Scanner) int {
 	scanner.Scan()
 	item, err := strconv.Atoi(scanner.Text())
 	if err != nil {
@@ -32,16 +32,16 @@ func getFirstItem( scanner *bufio.Scanner) int {
 	return item
 }
 
-func getIncrements( scanner *bufio.Scanner, previousItem int) int {
+func getIncrements(scanner *bufio.Scanner, previousItem int) int {
 	if scanner.Scan() {
 		item, err := strconv.Atoi(scanner.Text())
 		if err != nil {
 			log.Fatal("Couldn't convert scanned row to number")
 		}
 		if previousItem < item {
-			return getIncrements( scanner, item ) + 1
+			return getIncrements(scanner, item) + 1
 		} else {
-			return getIncrements( scanner, item )
+			return getIncrements(scanner, item)
 		}
 	}
 	return 0
